@@ -9,7 +9,6 @@ Source:         %{name}-%{version}.tar.bz2
 Source99:       baselibs.conf
 BuildRequires:  doxygen
 BuildRequires:  pkg-config
-BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 
 %description
 This is an implementation of double-array structure for representing
