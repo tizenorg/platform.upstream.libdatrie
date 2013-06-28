@@ -7,6 +7,7 @@ Url:            http://linux.thai.net/~thep/datrie/datrie.html
 Group:          System/Libraries
 Source:         %{name}-%{version}.tar.bz2
 Source99:       baselibs.conf
+Source1001: 	libdatrie.manifest
 BuildRequires:  doxygen
 BuildRequires:  pkg-config
 
@@ -30,6 +31,7 @@ This package contains the development files for libdatrie.
 
 %prep
 %setup -q
+cp %{SOURCE1001} .
 
 %build
 %configure \
@@ -47,11 +49,13 @@ mv %{buildroot}%{_datadir}/doc/libdatrie/README.migration %{buildroot}%{_docdir}
 %postun  -p /sbin/ldconfig
 
 %files
+%manifest %{name}.manifest
 %defattr(-,root,root)
 %doc COPYING
 %{_libdir}/libdatrie.so.1*
 
 %files devel
+%manifest %{name}.manifest
 %defattr(-,root,root)
 %{_bindir}/trietool-0.2
 %doc %{_mandir}/man*/trietool-0.2.*
